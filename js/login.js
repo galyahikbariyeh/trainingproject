@@ -19,7 +19,7 @@ loginForm.addEventListener('submit',async function (e) {
         if(data.message=='User logged in successfully'){
             alert('User logged in successfully')
             sessionStorage.setItem('authToken',data.token)
-            // window.location.href='home1.html'
+             window.location.href='project.html'
         }
         else{
             alert('User not found')
