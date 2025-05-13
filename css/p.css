@@ -9,8 +9,10 @@
 header {
     background-color: #0b9da0;
     color: #fff;
-    padding: 10px 0;
+    padding: 0px 0;
     text-align: center;
+
+   
     
 }
 .login-button {
@@ -29,6 +31,7 @@ header {
 
 
 .logo-text {
+  
     font-size: 28px;
     font-weight: bold;
     color: white;
@@ -220,8 +223,9 @@ nav ul li a:hover {
 footer {
     background-color: #0b9da0;
     color: #fff;
-    padding: 10px 0;
+    padding: 15px 0;
     text-align: center;
+  
    
 }
 
