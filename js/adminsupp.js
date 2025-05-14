@@ -1,5 +1,5 @@
 
-var API_URL = 'http://127.0.0.1:5050/api/users';
+/*var API_URL = 'http://127.0.0.1:5050/api/users';
 var token = sessionStorage.getItem('authToken');
 
 if (!token) {
@@ -52,4 +52,63 @@ async function getUsers() {
     }
 }
 
-getUsers();
+getUsers();*/
+
+var dataTable=document.getElementById('dataTable')
+
+
+// JavaScript for admin support page to display tickets
+document.addEventListener('DOMContentLoaded', async function() {
+    // Check if user is logged in and is an admin
+    const token = localStorage.getItem('authToken');
+    
+    if (!token) {
+        // Redirect to login page if not logged in
+        window.location.href = '/html/login.html';
+        return;
+    }
+    
+    // Get tickets from the server
+    try {
+        const response = await fetch('/api/tickets', {
+            method: 'GET',
+            headers: {
+                'Authorization': token,
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        if (response.status === 401 || response.status === 403) {
+            // Unauthorized or forbidden, redirect to login
+            alert('يجب تسجيل الدخول كمسؤول للوصول إلى هذه الصفحة');
+            window.location.href = '/html/login.html';
+            return;
+        }
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch tickets');
+        }
+        
+        const tickets = await response.json();
+        
+        // Display tickets in the table
+        const tbody = document.getElementById('tbody');
+        
+        if (tickets.length === 0) {
+            // No tickets to display
+            tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;">لا توجد تذاكر دعم حالياً</td></tr>';
+        } else {
+            // Create table rows for each ticket
+            tbody.innerHTML = tickets.map(ticket => `
+                <tr>
+                    <td>${ticket.email}</td>
+                    <td>${ticket.subject}</td>
+                    <td>${ticket.problem}</td>
+                </tr>
+            `).join('');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('حدث خطأ في جلب بيانات التذاكر');
+    }
+});

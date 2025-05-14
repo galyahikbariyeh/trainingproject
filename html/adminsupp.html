@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,5 +58,121 @@
         <tbody id="tbody"></tbody>
     </table>
     <script src="/js/adminsupp.js"></script>
+</body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/p.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>لوحة الدعم - كودزون</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: right;
+        }
+        th {
+            background-color: #009688;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e2f5f4;
+        }
+        .admin-panel {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+        .admin-header {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #009688;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logout-btn {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .no-tickets {
+            text-align: center;
+            padding: 30px;
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-text">
+            <span class="brackets"></span> كودزون <span class="brackets"></span>
+            <span class="brackets"></span> CodeZone <span class="brackets"></span>
+            <div class="container">
+                <a class="login-button" href="/html/login.html">دخول</a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/html/project.html">الرئيسية</a></li>
+                <li><a href="/html/project.html">عن الموقع</a></li>
+                <li><a href="/html/project.html">الدورات</a></li>
+                <li><a href="/html/project.html">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="admin-panel">
+        <div class="admin-header">
+            <h2>لوحة الدعم الفني</h2>
+            <button id="logoutBtn" class="logout-btn">تسجيل خروج</button>
+        </div>
+
+        <table id="dataTable">
+            <thead>
+                <tr>
+                    <th>البريد الإلكتروني</th>
+                    <th>الموضوع</th>
+                    <th>المشكلة</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <!-- Tickets will be loaded here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/js/adminsupp.js"></script>
+    <script>
+        // Add logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            localStorage.removeItem('authToken');
+            window.location.href = '/html/login.html';
+        });
+    </script>
 </body>
 </html>
