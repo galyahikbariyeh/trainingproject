@@ -4,7 +4,7 @@ const { createTicket, getAllTickets } = require('../controllers/ticketController
 const { adminAuth } = require('../controllers/userController');
 
 // Route to create a new ticket (public)
-router.post('/create', createTicket);
+router.post('/', createTicket);
 
 // Route to get all tickets (admin only)
 router.get('/users',adminAuth,getAllTickets)

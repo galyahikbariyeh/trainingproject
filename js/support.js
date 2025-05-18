@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             try {
                 // Send the data to the server
-                const response = await fetch('/api/tickets', {
+                const response = await fetch('http://localhost:5050/api/tickets', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -45,3 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+
+
+
+
