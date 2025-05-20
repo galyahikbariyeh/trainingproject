@@ -15,7 +15,7 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 app.use('/api',userRouter)
-app.use('/api/tickets', ticketRoutes);
+app.use('/api', ticketRoutes);
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html', 'project.html'));
 });

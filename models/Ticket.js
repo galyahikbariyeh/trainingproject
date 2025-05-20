@@ -13,10 +13,11 @@ const TicketSchema = new mongoose.Schema({
         type: String, 
         required: true 
     },
-    createdAt: {
+    /*createdAt: {
         type: Date,
         default: Date.now
-    }
+    }*/
 });
 
 module.exports = mongoose.model('ticket', TicketSchema);
+//updare
